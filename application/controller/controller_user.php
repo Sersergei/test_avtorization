@@ -3,7 +3,7 @@ class Controller_User extends Controller{
      function  action_index(){
        
         $data=null;
-        $this->view->generate('template_view.php',$data);
+        $this->view->generate('login_view.php','template_view.php',$data);
      }
     function action_avto($valid=0){
         //функция авторизации пользователя
@@ -26,7 +26,7 @@ class Controller_User extends Controller{
                 }  
             } 
         }
-       $this->view->generate('user_avto_view.php','template_view.php',$data); 
+       $this->view->generate('login_view.php','template_view.php',$data); 
     }
     function action_reg(){
         //функция регистрации
@@ -40,7 +40,7 @@ class Controller_User extends Controller{
        $user->set_password($_POST['passwordsignup']);
             
            } 
-            $this->view->generate('template_view.php',$user);
+            $this->view->generate('register_view.php','template_view.php',$user);
         }
         
     private function redirect(){
