@@ -10,9 +10,9 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title><?php echo($t['title']); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
     </head>
     <body>
         <div class="container">
@@ -56,7 +56,7 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form  action="user/auto" autocomplete="on" method="POST"> 
+                            <form  action="user/reg" autocomplete="on" method="POST"> 
                                 <h1> <?php  echo($t['Sign up']); ?></h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u"><?php  echo($t['Your username']); ?></label>

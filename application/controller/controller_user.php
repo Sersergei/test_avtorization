@@ -34,24 +34,13 @@ class Controller_User extends Controller{
             
         }
         else{
-           
-           $valid= $this->validate($_POST);//отправляем данные на проверку
-            
-           if(!isset($valid['error'])){
-            $insert=Model_user::reg($valid);
-        if(!$insert){
-            $this->action_avto($_POST);
-        }
-           }
-           else{
-              
-            $data['error']=$valid['error'];
-            $data['post']=$_POST;
-            
-           }
+       $user=new Model_user;
+       $user->set_login($_POST['usernamesignup']);
+       $user->set_email($_POST['emailsignup']);
+       $user->set_password($_POST['passwordsignup']);
             
            } 
-            $this->view->generate('user_reg_viewer.php','template_view.php',$data);
+            $this->view->generate('template_view.php',$user);
         }
         
     private function redirect(){
@@ -63,11 +52,11 @@ class Controller_User extends Controller{
     }
     function validate($arr) {
         //проверка введенных данных 
-        if($arr['login']=="") { $this->error= "Вы не ввели логин";}
-        if($arr['password']=="") {$this->error." Вы не ввели пароль";}
+        if($arr['login']=="") { $this->error= "Вы не ввели логин</br>";}
+        if($arr['password']=="") {$this->error." Вы не ввели пароль</br>";}
         if($arr['email']=="") {$error=$error." Вы не ввели email адресс";}
         $login=trim(strip_tags($arr['login']));
-        $password=md5($arr['password']);
+        
         $email=trim(strip_tags($arr['email']));
         $valid['login']=$login;
         $valid['password']=$password;

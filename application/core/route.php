@@ -27,15 +27,16 @@ class Route
         $action_name = 'action_'.$action_name;
         // подключаем файл с классом модели (файла модели может и не быть)
         $model_file = strtolower($model_name).'.php';
+        
         $model_path = "application/models/".$model_file;
         if(file_exists($model_path))
         {
+            
             include "application/models/".$model_file;
         }
         // подключаем файл с классом контроллера
         $controller_file = strtolower($controller_name).'.php';
         $controller_path = "application/controller/".$controller_file;
-        
         
         if(file_exists($controller_path))
         {
