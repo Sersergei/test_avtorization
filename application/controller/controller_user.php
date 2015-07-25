@@ -1,7 +1,7 @@
 <?php 
 class Controller_User extends Controller{
      function  action_index(){
-        var_dump('hjfhgf');
+       
         $data=null;
         $this->view->generate('template_view.php',$data);
      }
