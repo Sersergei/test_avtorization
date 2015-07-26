@@ -39,7 +39,8 @@ class Controller_User extends Controller{
        $user->set_email($_POST['emailsignup']);
        $user->set_password($_POST['passwordsignup']);
             
-           } 
+           }
+           
             $this->view->generate('register_view.php','template_view.php',$user);
         }
         
