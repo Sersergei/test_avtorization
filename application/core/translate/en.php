@@ -13,5 +13,9 @@ $translate=array(
     'Sign up'=>'Sign up',
     'Already a member ?'=>'Already a member ?',
     'Go and log in'=>'Go and log in',
+    'Length username should be more than two symbols'=>'Length username should be more than two symbols',
+    'Length password should be more than 3 symbols'=>'Length password should be more than 3 symbols',
+    'You entered incorrectly email'=>'You entered incorrectly email',
+    'Repeat your password correctly'=>'Repeat your password correctly',
     
 );

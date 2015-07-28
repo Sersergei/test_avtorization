@@ -35,11 +35,24 @@ class Controller_User extends Controller{
         }
         else{
        $user=new Model_user;
-       $user->set_login($_POST['usernamesignup']);
-       $user->set_email($_POST['emailsignup']);
-       $user->set_password($_POST['passwordsignup']);
+       
+       
+        if($user->set_email($_POST['emailsignup']) and $user->set_password($_POST['passwordsignup']) and $user->set_login($_POST['usernamesignup'])){
+            if($_POST['passwordsignup_confirm']===$_POST['passwordsignup']){
+                $user->save();
+                }
+            else{
+                
+        $t=t::gett();
+        $user->error=$t['Repeat your password correctly'];
+       }
+                
+            }
+        }
+       
+       
             
-           }
+           
            
             $this->view->generate('register_view.php','template_view.php',$user);
         }
@@ -51,21 +64,7 @@ class Controller_User extends Controller{
          header("Location: /");
         
     }
-    function validate($arr) {
-        //проверка введенных данных 
-        if($arr['login']=="") { $this->error= "Вы не ввели логин</br>";}
-        if($arr['password']=="") {$this->error." Вы не ввели пароль</br>";}
-        if($arr['email']=="") {$error=$error." Вы не ввели email адресс";}
-        $login=trim(strip_tags($arr['login']));
-        
-        $email=trim(strip_tags($arr['email']));
-        $valid['login']=$login;
-        $valid['password']=$password;
-        $valid['email']=$email;
-        //$valid['error']=$error;
-        
-        return $valid;
-        }
+
         function action_logaut(){
             //выход пользователя
         session_unset();

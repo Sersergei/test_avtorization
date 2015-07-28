@@ -13,4 +13,8 @@ $translate=array(
     'Sign up'=>'Зарегистрироваться',
     'Already a member ?'=>'Вы уже зарегистрированы?',
     'Go and log in'=>'Войти',
+    'Length username should be more than two symbols'=>'Длинна логина должна быть больше двух символов',
+    'Length password should be more than 3 symbols'=>'Длинна ппаарроолляя должна быть больше 3-х символов',
+    'You entered incorrectly email'=>'Вы ввели некоректный email',
+    'Repeat your password correctly'=>'Повторите правильно пароль',
 );
