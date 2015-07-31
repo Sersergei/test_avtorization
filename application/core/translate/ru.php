@@ -17,4 +17,5 @@ $translate=array(
     'Length password should be more than 3 symbols'=>'Длинна ппаарроолляя должна быть больше 3-х символов',
     'You entered incorrectly email'=>'Вы ввели некоректный email',
     'Repeat your password correctly'=>'Повторите правильно пароль',
+    'This user name already registered'=>'Пользователь с таким именем уже зарегистрированый',
 );

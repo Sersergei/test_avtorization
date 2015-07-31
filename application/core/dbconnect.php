@@ -8,8 +8,7 @@ class DBconnect
               require_once "config_db.php";
         try{
             $connect_str = DB_DRIVER . ':host='. DB_HOST . ';dbname=' . DB_NAME;
-            $db = new PDO($connect_str,DB_USER,DB_PASS);
-            self::$_instance=$db;
+            self::$_instance=new PDO($connect_str,DB_USER,DB_PASS);
         }
         catch(PDOException $e) {  
             echo $e->getMessage();  
@@ -23,7 +22,7 @@ class DBconnect
         
         if (null === self::$_instance) {
           
-            self::$_instance = new self();
+             new self();
         }
        
         return self::$_instance;

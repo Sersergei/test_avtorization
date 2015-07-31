@@ -31,6 +31,11 @@ class Model_user
             return false;
         }
         $login = ucfirst(mb_strtolower($login));
+        var_dump($this->selectlogin($login));
+        if(!$this->selectlogin($login)){
+            $this->error=$this->t['This user name already registered'];
+            return false;
+        }
         $this->login = $login;
         return true;
     }
@@ -59,12 +64,25 @@ class Model_user
     {
         
         try {
-            $result = DBconnect::getInstance();
-            $result->prepare("INSERT INTO users(login,email,password) VALUES (:login,:email,:password)");
+            $conect = DBconnect::getInstance();
+            $result= $conect->prepare("INSERT INTO users(login,email,password) VALUES (:login,:email,:password)");
             $result->bindParam(':login', $this->login);
             $result->bindParam(':email', $this->email);
             $result->bindParam(':password', $this->password);
             $result->execute();
+        }
+        catch (PDOException $e) {
+            echo 'Error : ' . $e->getMessage();
+            exit();
+        }
+    }
+    private function selectlogin($login){
+        try{
+        $conect= DBconnect::getInstance();
+        $result= $conect->prepare("SELECT id FROM users WHERE login=:login");
+        $result->bindParam(':login',$login);
+        $result->execute();
+        return $result->fetch();
         }
         catch (PDOException $e) {
             echo 'Error : ' . $e->getMessage();
